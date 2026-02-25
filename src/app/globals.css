@@ -1,0 +1,210 @@
+/* Global styles for Garden Coffee and Tea Centre */
+@import "tailwindcss";
+
+/* =========================================
+   Design Tokens (from Design Document)
+   ========================================= */
+@theme inline {
+  /* Colors */
+  --color-primary: #2C5F2E;
+  --color-primary-dark: #1E4520;
+  --color-secondary: #7B4A2D;
+  --color-accent: #C9883A;
+  --color-background: #FAF7F2;
+  --color-text: #2E2E2E;
+  --color-muted: #7A7370;
+  --color-sage: #EDF3ED;
+  --color-linen: #F5EDE4;
+  --color-white: #FFFFFF;
+  --color-border: #EDE8E3;
+  --color-input-border: #D4CEC9;
+  --color-error: #D9534F;
+  --color-overlay: rgba(46, 46, 46, 0.55);
+
+  /* Font families */
+  --font-heading: "Playfair Display", serif;
+  --font-body: "Lato", sans-serif;
+  --font-accent: "Cormorant Garamond", serif;
+
+  /* Border radius */
+  --radius-card: 12px;
+  --radius-button: 8px;
+}
+
+/* =========================================
+   Base Resets
+   ========================================= */
+:root {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--color-background);
+  color: var(--color-text);
+  font-family: var(--font-body);
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* =========================================
+   Skip Link (Accessibility)
+   ========================================= */
+.skip-link {
+  position: absolute;
+  top: -100%;
+  left: 16px;
+  z-index: 9999;
+  padding: 12px 24px;
+  background-color: var(--color-primary);
+  color: var(--color-background);
+  font-weight: 700;
+  border-radius: var(--radius-button);
+  text-decoration: none;
+  transition: top 200ms ease;
+}
+
+.skip-link:focus {
+  top: 16px;
+}
+
+/* =========================================
+   Focus Ring
+   ========================================= */
+*:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+/* =========================================
+   Selection
+   ========================================= */
+::selection {
+  background-color: var(--color-sage);
+  color: var(--color-primary);
+}
+
+/* =========================================
+   Glassmorphism Utilities
+   ========================================= */
+.glass {
+  background: rgba(255, 255, 255, 0.45);
+  backdrop-filter: blur(16px) saturate(180%);
+  -webkit-backdrop-filter: blur(16px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.glass-strong {
+  background: rgba(255, 255, 255, 0.65);
+  backdrop-filter: blur(24px) saturate(200%);
+  -webkit-backdrop-filter: blur(24px) saturate(200%);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+}
+
+.glass-dark {
+  background: rgba(30, 69, 32, 0.35);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.glass-card {
+  background: rgba(255, 255, 255, 0.55);
+  backdrop-filter: blur(12px) saturate(160%);
+  -webkit-backdrop-filter: blur(12px) saturate(160%);
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  box-shadow:
+    0 4px 16px rgba(0, 0, 0, 0.06),
+    inset 0 1px 0 rgba(255, 255, 255, 0.6);
+}
+
+.glass-card:hover {
+  background: rgba(255, 255, 255, 0.7);
+  box-shadow:
+    0 8px 32px rgba(0, 0, 0, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.7);
+}
+
+/* =========================================
+   Parallax Fixed Background
+   ========================================= */
+.parallax-bg {
+  background-attachment: fixed;
+  background-size: cover;
+  background-position: center;
+}
+
+@media (hover: none) {
+
+  /* Disable fixed attachment on touch devices (causes jank) */
+  .parallax-bg {
+    background-attachment: scroll;
+  }
+}
+
+/* =========================================
+   Floating Animation (decorative elements)
+   ========================================= */
+@keyframes float {
+
+  0%,
+  100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+
+  33% {
+    transform: translateY(-8px) rotate(1deg);
+  }
+
+  66% {
+    transform: translateY(-4px) rotate(-1deg);
+  }
+}
+
+@keyframes float-slow {
+
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+
+  50% {
+    transform: translateY(-12px);
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    opacity: 0.4;
+  }
+
+  50% {
+    opacity: 0.8;
+  }
+
+  100% {
+    opacity: 0.4;
+  }
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+.animate-float-slow {
+  animation: float-slow 8s ease-in-out infinite;
+}
+
+.animate-shimmer {
+  animation: shimmer 3s ease-in-out infinite;
+}
+
+/* Respect reduced motion */
+@media (prefers-reduced-motion: reduce) {
+
+  .animate-float,
+  .animate-float-slow,
+  .animate-shimmer {
+    animation: none;
+  }
+}
