@@ -27,7 +27,7 @@ export function ProductCard({ product }: ProductCardProps) {
                     />
                 ) : (
                     <Image
-                        src="/images/product_placeholder.png"
+                        src={product.fallbackImage || "/images/product_placeholder.png"}
                         alt={product.title || "Product placeholder"}
                         fill
                         sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"

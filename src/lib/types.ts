@@ -13,6 +13,7 @@ export interface Product {
   category: "coffee" | "tea";
   description: string;
   image: SanityImageSource;
+  fallbackImage?: string;
   price?: number;
   isFeatured: boolean;
 }
