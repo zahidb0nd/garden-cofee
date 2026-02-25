@@ -183,14 +183,14 @@ export default async function HomePage() {
                 <span className="flex items-center gap-2">
                   <MapPinIcon className="h-5 w-5 text-accent" aria-hidden="true" />
                   <span className="font-body text-sm">
-                    {settings?.address || "Garden Coffee and Tea Centre, Main Street"}
+                    {settings?.address || "# 52, BTM Layout 1st Stage, Bannerghatta Road, Bangalore – 560029"}
                   </span>
                 </span>
                 <span className="hidden sm:inline text-white/40">|</span>
                 <span className="flex items-center gap-2">
                   <ClockIcon className="h-5 w-5 text-accent" aria-hidden="true" />
                   <span className="font-body text-sm">
-                    {settings?.openingHours || "Mon – Sat: 9 AM – 7 PM"}
+                    {settings?.openingHours || "Mon – Sat: 7 AM – 9 PM | Sun: 7 AM – 2 PM"}
                   </span>
                 </span>
               </div>

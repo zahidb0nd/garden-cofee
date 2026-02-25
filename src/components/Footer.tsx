@@ -64,7 +64,7 @@ export function Footer() {
                             <li className="flex items-start gap-2">
                                 <MapPinIcon className="h-5 w-5 mt-0.5 shrink-0 text-accent" aria-hidden="true" />
                                 <span className="font-body text-sm opacity-80">
-                                    Garden Coffee and Tea Centre, Main Street
+                                    # 52, BTM Layout 1st Stage, Bannerghatta Road, Bangalore – 560029
                                 </span>
                             </li>
                             <li className="flex items-center gap-2">
@@ -82,9 +82,9 @@ export function Footer() {
                             <li className="flex items-start gap-2">
                                 <ClockIcon className="h-5 w-5 mt-0.5 shrink-0 text-accent" aria-hidden="true" />
                                 <span className="font-body text-sm opacity-80">
-                                    Mon – Sat: 9 AM – 7 PM
+                                    Mon – Sat: 7:00 AM – 9:00 PM
                                     <br />
-                                    Sun: Closed
+                                    Sun: 7:00 AM – 2:00 PM
                                 </span>
                             </li>
                         </ul>

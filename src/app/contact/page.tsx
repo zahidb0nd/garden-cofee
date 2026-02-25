@@ -24,10 +24,10 @@ export default async function ContactPage() {
     const settings = await sanityFetch<SiteSettings>(siteSettingsQuery);
 
     const storeName = settings?.storeName || "Garden Coffee & Tea Centre";
-    const address = settings?.address || "Main Street, City Centre";
+    const address = settings?.address || "# 52, Near HDFC Bank and Opposite Bismillah Function Hall, 3rd Main, Bismillah Nagar, Bannerghatta Road, BTM Layout 1st Stage, Bangalore – 560029, Karnataka";
     const phone = settings?.phone || "+91 98765 43210";
     const email = settings?.email || "hello@gardenteacentre.com";
-    const openingHours = settings?.openingHours || "Mon – Sat: 9 AM – 7 PM\nSun: Closed";
+    const openingHours = settings?.openingHours || "Mon – Sat: 7:00 AM – 9:00 PM\nSun: 7:00 AM – 2:00 PM";
 
     return (
         <>
