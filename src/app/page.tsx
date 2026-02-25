@@ -22,7 +22,7 @@ const FALLBACK_PRODUCTS: Product[] = [
     description:
       "A rich, aromatic blend roasted to perfection. Our signature filter coffee powder that captures the essence of South Indian tradition.",
     image: null as unknown as Product["image"],
-    fallbackImage: "/images/product_filter_coffee.png",
+    fallbackImage: "/images/product_filter_coffee.jpg",
     isFeatured: true,
   },
   {
@@ -34,7 +34,7 @@ const FALLBACK_PRODUCTS: Product[] = [
     description:
       "A warming blend of premium tea leaves with hand-ground spices — cardamom, ginger, and cinnamon. Perfect for cosy evenings.",
     image: null as unknown as Product["image"],
-    fallbackImage: "/images/product_masala_chai.png",
+    fallbackImage: "/images/product_masala_chai.jpg",
     isFeatured: true,
   },
   {
@@ -46,7 +46,7 @@ const FALLBACK_PRODUCTS: Product[] = [
     description:
       "Sourced from the misty hills of Nilgiri, this delicate green tea offers a light, refreshing flavour with natural antioxidants.",
     image: null as unknown as Product["image"],
-    fallbackImage: "/images/product_green_tea.png",
+    fallbackImage: "/images/product_green_tea.jpg",
     isFeatured: true,
   },
   {
@@ -58,7 +58,7 @@ const FALLBACK_PRODUCTS: Product[] = [
     description:
       "Our boldest blend — a full-bodied dark roast with smoky undertones and a velvety finish. For those who like it strong.",
     image: null as unknown as Product["image"],
-    fallbackImage: "/images/product_dark_roast.png",
+    fallbackImage: "/images/product_dark_roast.jpg",
     isFeatured: true,
   },
 ];
