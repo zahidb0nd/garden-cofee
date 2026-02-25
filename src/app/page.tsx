@@ -1,5 +1,5 @@
-// Home page — Hero, Brand Intro, Featured Products, Block-based CTA
 import Link from "next/link";
+import Image from "next/image";
 import { HeroSection } from "@/components/HeroSection";
 import { ProductCard } from "@/components/ProductCard";
 import { AnimationWrapper } from "@/components/AnimationWrapper";
@@ -117,16 +117,12 @@ export default async function HomePage() {
 
             <AnimationWrapper delay={0.15}>
               <div className="relative aspect-[4/3] rounded-card overflow-hidden glass-card">
-                <div className="flex h-full w-full items-center justify-center">
-                  <div className="text-center px-6">
-                    <svg className="w-16 h-16 mx-auto text-primary/20 animate-float-slow" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="1">
-                      <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 15.75l5.159-5.159a2.25 2.25 0 013.182 0l5.159 5.159m-1.5-1.5l1.409-1.41a2.25 2.25 0 013.182 0l2.909 2.91m-18 3.75h16.5a1.5 1.5 0 001.5-1.5V6a1.5 1.5 0 00-1.5-1.5H3.75A1.5 1.5 0 002.25 6v12a1.5 1.5 0 001.5 1.5zm10.5-11.25h.008v.008h-.008V8.25zm.375 0a.375.375 0 11-.75 0 .375.375 0 01.75 0z" />
-                    </svg>
-                    <p className="mt-2 font-body text-sm theme-muted">
-                      Brand image from CMS
-                    </p>
-                  </div>
-                </div>
+                <Image
+                  src="/images/brand_heritage.png"
+                  alt="Brand Heritage"
+                  fill
+                  className="object-cover"
+                />
               </div>
             </AnimationWrapper>
           </div>

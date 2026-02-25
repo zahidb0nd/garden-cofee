@@ -57,7 +57,7 @@ export function HeroSection({
                 style={{
                     backgroundImage: backgroundImage
                         ? `url(${backgroundImage})`
-                        : "linear-gradient(135deg, #2C5F2E 0%, #1E4520 50%, #7B4A2D 100%)",
+                        : "url('/images/hero-bg.png')", // Ensure this image exists in public/images/
                     transform: `translateY(${parallaxOffset}px) scale(1.1)`,
                 }}
                 aria-hidden="true"
