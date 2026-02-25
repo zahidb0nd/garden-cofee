@@ -1,6 +1,7 @@
-// Root layout — fonts, metadata, Navbar, Footer, GA4
+// Root layout — fonts, metadata, ThemeProvider, Navbar, Footer, GA4
 import type { Metadata } from "next";
 import { Playfair_Display, Lato, Cormorant_Garamond } from "next/font/google";
+import { ThemeProvider } from "@/components/ThemeProvider";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { GoogleAnalytics } from "@/components/GoogleAnalytics";
@@ -61,20 +62,23 @@ export default function RootLayout({
     <html
       lang="en"
       className={`${playfairDisplay.variable} ${lato.variable} ${cormorantGaramond.variable}`}
+      suppressHydrationWarning
     >
-      <body className="font-body antialiased">
-        {/* Skip link for accessibility */}
-        <a href="#main-content" className="skip-link">
-          Skip to main content
-        </a>
+      <body className="font-body antialiased bg-background text-text">
+        <ThemeProvider>
+          {/* Skip link for accessibility */}
+          <a href="#main-content" className="skip-link">
+            Skip to main content
+          </a>
 
-        <Navbar />
+          <Navbar />
 
-        <main id="main-content" className="pt-[60px] lg:pt-[72px]">
-          {children}
-        </main>
+          <main id="main-content" className="pt-[60px] lg:pt-[72px]">
+            {children}
+          </main>
 
-        <Footer />
+          <Footer />
+        </ThemeProvider>
 
         <GoogleAnalytics />
       </body>

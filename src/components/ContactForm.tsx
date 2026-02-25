@@ -1,4 +1,4 @@
-// ContactForm — Glassmorphism contact form with validation
+// ContactForm — Liquid glass contact form with dark mode
 "use client";
 
 import { useState, type FormEvent } from "react";
@@ -62,11 +62,7 @@ export function ContactForm() {
 
     if (status === "success") {
         return (
-            <div
-                className="glass rounded-card p-8 text-center"
-                role="alert"
-                aria-live="polite"
-            >
+            <div className="liquid-glass rounded-card p-8 text-center" role="alert" aria-live="polite">
                 <h3 className="font-heading text-xl font-bold text-primary mb-2">
                     Thank you!
                 </h3>
@@ -75,7 +71,7 @@ export function ContactForm() {
                 </p>
                 <button
                     onClick={() => setStatus("idle")}
-                    className="mt-4 font-body text-sm font-bold text-primary underline"
+                    className="mt-4 font-body text-sm font-bold text-primary underline cursor-pointer"
                 >
                     Send another message
                 </button>
@@ -84,9 +80,9 @@ export function ContactForm() {
     }
 
     return (
-        <div className="glass rounded-card p-6 md:p-8">
+        <div className="liquid-glass rounded-card p-6 md:p-8">
             <form onSubmit={handleSubmit} noValidate className="space-y-6">
-                {/* Name field */}
+                {/* Name */}
                 <div>
                     <label
                         htmlFor="contact-name"
@@ -111,7 +107,7 @@ export function ContactForm() {
                     )}
                 </div>
 
-                {/* Email field */}
+                {/* Email */}
                 <div>
                     <label
                         htmlFor="contact-email"
@@ -136,7 +132,7 @@ export function ContactForm() {
                     )}
                 </div>
 
-                {/* Message field */}
+                {/* Message */}
                 <div>
                     <label
                         htmlFor="contact-message"
@@ -162,23 +158,19 @@ export function ContactForm() {
 
                 {/* Error banner */}
                 {status === "error" && (
-                    <div
-                        className="glass rounded-button p-3 text-center"
-                        role="alert"
-                        aria-live="assertive"
-                        style={{ borderLeft: "3px solid var(--color-error)" }}
-                    >
+                    <div className="glass rounded-button p-3 text-center" role="alert" aria-live="assertive"
+                        style={{ borderLeft: "3px solid var(--color-error)" }}>
                         <p className="font-body text-sm text-error">
                             Something went wrong. Please try again or contact us directly.
                         </p>
                     </div>
                 )}
 
-                {/* Submit button */}
+                {/* Submit */}
                 <button
                     type="submit"
                     disabled={status === "submitting"}
-                    className="w-full rounded-button bg-primary px-6 py-3 font-body text-sm font-bold uppercase tracking-wider text-background transition-all duration-250 hover:bg-primary-dark hover:shadow-[0_4px_20px_rgba(44,95,46,0.3)] hover:scale-[1.02] disabled:opacity-60 disabled:cursor-not-allowed disabled:hover:scale-100"
+                    className="w-full rounded-button bg-primary px-6 py-3 font-body text-sm font-bold uppercase tracking-wider text-white transition-all duration-250 hover:bg-primary-dark hover:shadow-[0_4px_20px_rgba(44,95,46,0.3)] hover:scale-[1.02] disabled:opacity-60 disabled:cursor-not-allowed disabled:hover:scale-100 cursor-pointer"
                 >
                     {status === "submitting" ? "Sending…" : "Send Message"}
                 </button>
