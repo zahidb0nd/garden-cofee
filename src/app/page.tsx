@@ -85,18 +85,18 @@ export default async function HomePage() {
       />
 
       {/* ===== Brand Introduction ===== */}
-      <section className="bg-background py-12 md:py-20" aria-labelledby="brand-intro-heading">
+      <section className="theme-bg py-12 md:py-20" aria-labelledby="brand-intro-heading">
         <div className="mx-auto max-w-[1200px] px-6">
           <div className="grid grid-cols-1 gap-8 md:grid-cols-[55%_45%] items-center">
             <AnimationWrapper>
               <div>
                 <h2
                   id="brand-intro-heading"
-                  className="font-heading text-2xl md:text-[32px] font-bold text-text mb-4"
+                  className="font-heading text-2xl md:text-[32px] font-bold theme-text mb-4"
                 >
                   From Our Garden to Your Cup
                 </h2>
-                <p className="font-body text-base md:text-lg text-text leading-relaxed max-w-[65ch]">
+                <p className="font-body text-base md:text-lg theme-text leading-relaxed max-w-[65ch]">
                   For generations, Garden Coffee and Tea Centre has been the
                   trusted neighbourhood destination for premium coffee and tea
                   powders. What began as a grandfather&apos;s passion for the
@@ -106,8 +106,8 @@ export default async function HomePage() {
                 </p>
                 {/* Liquid glass blockquote */}
                 <blockquote
-                  className="mt-6 liquid-glass rounded-card px-5 py-4 font-accent text-xl md:text-[22px] italic text-accent"
-                  style={{ borderLeft: "4px solid var(--color-accent)" }}
+                  className="mt-6 liquid-glass rounded-card px-5 py-4 font-accent text-xl md:text-[22px] italic theme-accent"
+                  style={{ borderLeft: "4px solid var(--theme-accent)" }}
                 >
                   &ldquo;A cup of our coffee is a cup of heritage — every sip
                   tells the story of four generations.&rdquo;
@@ -122,7 +122,7 @@ export default async function HomePage() {
                     <svg className="w-16 h-16 mx-auto text-primary/20 animate-float-slow" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="1">
                       <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 15.75l5.159-5.159a2.25 2.25 0 013.182 0l5.159 5.159m-1.5-1.5l1.409-1.41a2.25 2.25 0 013.182 0l2.909 2.91m-18 3.75h16.5a1.5 1.5 0 001.5-1.5V6a1.5 1.5 0 00-1.5-1.5H3.75A1.5 1.5 0 002.25 6v12a1.5 1.5 0 001.5 1.5zm10.5-11.25h.008v.008h-.008V8.25zm.375 0a.375.375 0 11-.75 0 .375.375 0 01.75 0z" />
                     </svg>
-                    <p className="mt-2 font-body text-sm text-muted">
+                    <p className="mt-2 font-body text-sm theme-muted">
                       Brand image from CMS
                     </p>
                   </div>
@@ -134,12 +134,12 @@ export default async function HomePage() {
       </section>
 
       {/* ===== Featured Products Strip ===== */}
-      <section className="bg-sage py-12 md:py-20" aria-labelledby="featured-heading">
+      <section className="theme-sage py-12 md:py-20" aria-labelledby="featured-heading">
         <div className="mx-auto max-w-[1200px] px-6">
           <AnimationWrapper>
             <h2
               id="featured-heading"
-              className="font-heading text-2xl md:text-[32px] font-bold text-text text-center mb-10 md:mb-14"
+              className="font-heading text-2xl md:text-[32px] font-bold theme-text text-center mb-10 md:mb-14"
             >
               Our Finest Selection
             </h2>
@@ -165,7 +165,7 @@ export default async function HomePage() {
       </section>
 
       {/* ===== Block-Based Vibrant CTA ===== */}
-      <section className="py-12 md:py-16 px-6" aria-labelledby="visit-heading">
+      <section className="theme-bg py-12 md:py-16 px-6" aria-labelledby="visit-heading">
         <div className="mx-auto max-w-[800px]">
           <AnimationWrapper>
             <div className="block-vibrant px-8 py-12 md:px-12 md:py-16 text-center text-white">

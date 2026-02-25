@@ -25,7 +25,7 @@ export function ThemeToggle() {
                 strokeWidth="2"
                 strokeLinecap="round"
                 strokeLinejoin="round"
-                className="text-text"
+                className="theme-text"
                 animate={{
                     rotate: shouldReduceMotion ? 0 : isDark ? 360 : 0,
                     scale: shouldReduceMotion ? 1 : [1, 1.15, 1],

@@ -34,18 +34,18 @@ export default async function AboutPage() {
 
             {/* Brand Story Section */}
             <section
-                className="bg-background py-12 md:py-20"
+                className="theme-bg py-12 md:py-20"
                 aria-labelledby="brand-story-heading"
             >
                 <div className="mx-auto max-w-[680px] px-6 text-center">
                     <AnimationWrapper>
                         <h2
                             id="brand-story-heading"
-                            className="font-heading text-2xl md:text-[32px] font-bold text-text mb-6"
+                            className="font-heading text-2xl md:text-[32px] font-bold theme-text mb-6"
                         >
                             Our Story
                         </h2>
-                        <p className="font-body text-base md:text-lg text-text leading-relaxed">
+                        <p className="font-body text-base md:text-lg theme-text leading-relaxed">
                             {brandStory}
                         </p>
                     </AnimationWrapper>

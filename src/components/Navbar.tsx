@@ -41,8 +41,8 @@ export function Navbar() {
     return (
         <header
             className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled
-                    ? "liquid-glass shadow-[0_4px_24px_rgba(0,0,0,0.08)]"
-                    : "bg-background/80 backdrop-blur-sm"
+                ? "liquid-glass shadow-[0_4px_24px_rgba(0,0,0,0.08)]"
+                : "theme-bg backdrop-blur-sm"
                 }`}
         >
             <nav
@@ -52,7 +52,7 @@ export function Navbar() {
                 {/* Logo */}
                 <Link
                     href="/"
-                    className="font-heading text-xl font-bold text-primary py-4 lg:py-0"
+                    className="font-heading text-xl font-bold theme-primary py-4 lg:py-0"
                     style={{ lineHeight: "72px" }}
                 >
                     Garden Coffee &amp; Tea
@@ -67,8 +67,8 @@ export function Navbar() {
                                 <Link
                                     href={link.href}
                                     className={`font-body text-sm font-bold uppercase tracking-wider transition-colors duration-200 ${isActive
-                                            ? "text-primary border-b-2 border-primary pb-1"
-                                            : "text-text hover:text-primary"
+                                        ? "theme-primary border-b-2 border-primary pb-1"
+                                        : "theme-text hover:text-primary"
                                         }`}
                                     style={{ lineHeight: "72px" }}
                                     aria-current={isActive ? "page" : undefined}
@@ -85,7 +85,7 @@ export function Navbar() {
                     <ThemeToggle />
 
                     <button
-                        className="lg:hidden p-2 text-text hover:text-primary transition-colors duration-200 cursor-pointer"
+                        className="lg:hidden p-2 theme-text hover:text-primary transition-colors duration-200 cursor-pointer"
                         onClick={() => setIsMenuOpen((prev) => !prev)}
                         aria-expanded={isMenuOpen}
                         aria-controls="mobile-menu"
@@ -131,7 +131,7 @@ export function Navbar() {
                                     <li key={link.href}>
                                         <Link
                                             href={link.href}
-                                            className={`block py-3 font-body text-sm font-bold uppercase tracking-wider transition-colors duration-200 cursor-pointer ${isActive ? "text-primary" : "text-text hover:text-primary"
+                                            className={`block py-3 font-body text-sm font-bold uppercase tracking-wider transition-colors duration-200 cursor-pointer ${isActive ? "theme-primary" : "theme-text hover:text-primary"
                                                 }`}
                                             style={{ minHeight: "48px", lineHeight: "24px" }}
                                             aria-current={isActive ? "page" : undefined}

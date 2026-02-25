@@ -63,15 +63,15 @@ export function ContactForm() {
     if (status === "success") {
         return (
             <div className="liquid-glass rounded-card p-8 text-center" role="alert" aria-live="polite">
-                <h3 className="font-heading text-xl font-bold text-primary mb-2">
+                <h3 className="font-heading text-xl font-bold theme-primary mb-2">
                     Thank you!
                 </h3>
-                <p className="font-body text-text">
+                <p className="font-body theme-text">
                     Your message has been sent. We&apos;ll get back to you soon.
                 </p>
                 <button
                     onClick={() => setStatus("idle")}
-                    className="mt-4 font-body text-sm font-bold text-primary underline cursor-pointer"
+                    className="mt-4 font-body text-sm font-bold theme-primary underline cursor-pointer"
                 >
                     Send another message
                 </button>

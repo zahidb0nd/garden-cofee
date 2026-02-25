@@ -26,7 +26,7 @@ export function ProductCard({ product }: ProductCardProps) {
                         className="object-cover transition-transform duration-300 ease-out group-hover:scale-105"
                     />
                 ) : (
-                    <div className="flex h-full w-full items-center justify-center bg-sage">
+                    <div className="flex h-full w-full items-center justify-center theme-sage">
                         <svg className="w-12 h-12 text-muted/40" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="1.5">
                             <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 15.75l5.159-5.159a2.25 2.25 0 013.182 0l5.159 5.159m-1.5-1.5l1.409-1.41a2.25 2.25 0 013.182 0l2.909 2.91m-18 3.75h16.5a1.5 1.5 0 001.5-1.5V6a1.5 1.5 0 00-1.5-1.5H3.75A1.5 1.5 0 002.25 6v12a1.5 1.5 0 001.5 1.5zm10.5-11.25h.008v.008h-.008V8.25zm.375 0a.375.375 0 11-.75 0 .375.375 0 01.75 0z" />
                         </svg>
@@ -41,15 +41,15 @@ export function ProductCard({ product }: ProductCardProps) {
 
             {/* Card Content */}
             <div className="p-4">
-                <h3 className="font-heading text-lg font-bold text-text">
+                <h3 className="font-heading text-lg font-bold theme-text">
                     {product.title}
                 </h3>
-                <p className="mt-2 font-body text-sm text-muted leading-relaxed line-clamp-2">
+                <p className="mt-2 font-body text-sm theme-muted leading-relaxed line-clamp-2">
                     {product.description}
                 </p>
 
                 {product.price != null && (
-                    <p className="mt-3 font-accent text-lg font-semibold text-secondary">
+                    <p className="mt-3 font-accent text-lg font-semibold theme-secondary">
                         ₹{product.price}
                     </p>
                 )}

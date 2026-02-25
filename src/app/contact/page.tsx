@@ -34,13 +34,13 @@ export default async function ContactPage() {
             {/* Page Header */}
             <HeroSection title="Contact & Location" compact />
 
-            <section className="bg-background py-12 md:py-20">
+            <section className="theme-bg py-12 md:py-20">
                 <div className="mx-auto max-w-[1200px] px-6">
                     <div className="grid grid-cols-1 gap-10 lg:grid-cols-2">
                         {/* Business Info & Map — shows first on mobile */}
                         <div className="order-1 lg:order-2">
                             <AnimationWrapper>
-                                <h2 className="font-heading text-2xl md:text-[32px] font-bold text-text mb-6">
+                                <h2 className="font-heading text-2xl md:text-[32px] font-bold theme-text mb-6">
                                     {storeName}
                                 </h2>
 
@@ -122,10 +122,10 @@ export default async function ContactPage() {
                         {/* Contact Form — shows second on mobile, left on desktop */}
                         <div className="order-2 lg:order-1">
                             <AnimationWrapper delay={0.1}>
-                                <h2 className="font-heading text-2xl md:text-[32px] font-bold text-text mb-6">
+                                <h2 className="font-heading text-2xl md:text-[32px] font-bold theme-text mb-6">
                                     Send a Message
                                 </h2>
-                                <p className="font-body text-muted mb-8">
+                                <p className="font-body theme-muted mb-8">
                                     Have a question or want to know more? Drop us a message and
                                     we&apos;ll get back to you shortly.
                                 </p>

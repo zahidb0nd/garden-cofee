@@ -112,7 +112,7 @@ export default function ProductsPage() {
             <HeroSection title="Our Products" compact />
 
             {/* Filter Tabs */}
-            <section className="bg-background py-8">
+            <section className="theme-bg py-8">
                 <div className="mx-auto max-w-[1200px] px-6">
                     <FilterTabs
                         activeFilter={activeFilter}
@@ -122,14 +122,14 @@ export default function ProductsPage() {
             </section>
 
             {/* Product Grid */}
-            <section className="bg-background pb-12 md:pb-20" aria-label="Product catalogue">
+            <section className="theme-bg pb-12 md:pb-20" aria-label="Product catalogue">
                 <div className="mx-auto max-w-[1200px] px-6">
                     {isLoading ? (
                         <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
                             {[1, 2, 3].map((i) => (
                                 <div
                                     key={i}
-                                    className="animate-pulse rounded-card bg-sage h-[360px]"
+                                    className="animate-pulse rounded-card theme-sage h-[360px]"
                                 />
                             ))}
                         </div>

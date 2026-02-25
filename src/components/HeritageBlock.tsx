@@ -14,7 +14,7 @@ export function HeritageBlock({ story }: HeritageBlockProps) {
 
     return (
         <section
-            className="relative bg-linen py-12 md:py-20 overflow-hidden"
+            className="relative theme-linen py-12 md:py-20 overflow-hidden"
             aria-labelledby="heritage-heading"
         >
             {/* Morphing decorative blob */}
@@ -32,11 +32,11 @@ export function HeritageBlock({ story }: HeritageBlockProps) {
                     >
                         <h2
                             id="heritage-heading"
-                            className="font-heading text-2xl md:text-[32px] font-bold text-text mb-4"
+                            className="font-heading text-2xl md:text-[32px] font-bold theme-text mb-4"
                         >
                             A Legacy in Every Leaf and Bean
                         </h2>
-                        <p className="font-body text-base md:text-lg text-text leading-relaxed">
+                        <p className="font-body text-base md:text-lg theme-text leading-relaxed">
                             {heritageText}
                         </p>
                     </div>
