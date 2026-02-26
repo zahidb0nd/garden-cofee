@@ -3,6 +3,7 @@
 import { useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import Image from "next/image";
+import { PulseButton } from "./MicroInteractions";
 
 interface GrainParallaxHeroProps {
   imageSrc: string;
@@ -111,17 +112,15 @@ export default function GrainParallaxHero({
         </motion.p>
 
         {/* CTA Button with pulse animation on mount */}
-        <motion.a
-          href={ctaHref}
-          className="font-body inline-block rounded-lg bg-[#2C5F2E] px-8 py-3 text-sm font-bold uppercase tracking-widest text-[#FAF7F2] transition-colors duration-200 hover:bg-[#1E4520] focus:outline-none focus:ring-2 focus:ring-[#C9883A] focus:ring-offset-2"
+        <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.9, delay: 0.85, ease: "easeOut" }}
-          whileHover={{ scale: 1.03 }}
-          whileTap={{ scale: 0.97 }}
         >
-          {ctaText}
-        </motion.a>
+          <PulseButton href={ctaHref} variant="primary">
+            {ctaText}
+          </PulseButton>
+        </motion.div>
 
         {/* Scroll indicator */}
         <motion.div
