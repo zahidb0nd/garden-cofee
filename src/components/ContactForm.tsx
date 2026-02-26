@@ -1,48 +1,52 @@
-// ContactForm — Liquid glass contact form with dark mode
+// ContactForm — Liquid glass contact form with micro-interactions
 "use client";
 
 import { useState, type FormEvent } from "react";
+import { FloatingInput, FloatingTextarea, AnimatedSubmitButton } from "./MicroInteractions";
 
-type FormStatus = "idle" | "submitting" | "success" | "error";
+type FormStatus = "idle" | "loading" | "success" | "error";
 
 export function ContactForm() {
     const [status, setStatus] = useState<FormStatus>("idle");
     const [errors, setErrors] = useState<Record<string, string>>({});
+    const [form, setForm] = useState({ name: "", email: "", message: "" });
 
     const formspreeEndpoint =
         process.env.NEXT_PUBLIC_FORMSPREE_ENDPOINT || "https://formspree.io/f/placeholder";
 
-    function validate(formData: FormData): Record<string, string> {
+    function validate(): Record<string, string> {
         const validationErrors: Record<string, string> = {};
-        const name = formData.get("name")?.toString().trim() || "";
-        const email = formData.get("email")?.toString().trim() || "";
-        const message = formData.get("message")?.toString().trim() || "";
+        const { name, email, message } = form;
 
-        if (!name) validationErrors.name = "Name is required.";
-        if (!email) {
+        if (!name.trim()) validationErrors.name = "Name is required.";
+        if (!email.trim()) {
             validationErrors.email = "Email is required.";
         } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
             validationErrors.email = "Please enter a valid email address.";
         }
-        if (!message) validationErrors.message = "Message is required.";
+        if (!message.trim()) validationErrors.message = "Message is required.";
 
         return validationErrors;
     }
 
     async function handleSubmit(e: FormEvent<HTMLFormElement>) {
         e.preventDefault();
-        const formData = new FormData(e.currentTarget);
 
-        const validationErrors = validate(formData);
+        const validationErrors = validate();
         if (Object.keys(validationErrors).length > 0) {
             setErrors(validationErrors);
             return;
         }
 
         setErrors({});
-        setStatus("submitting");
+        setStatus("loading");
 
         try {
+            const formData = new FormData();
+            formData.append("name", form.name);
+            formData.append("email", form.email);
+            formData.append("message", form.message);
+
             const response = await fetch(formspreeEndpoint, {
                 method: "POST",
                 body: formData,
@@ -51,113 +55,53 @@ export function ContactForm() {
 
             if (response.ok) {
                 setStatus("success");
-                (e.target as HTMLFormElement).reset();
+                setForm({ name: "", email: "", message: "" });
+                // Reset status to idle after a few seconds
+                setTimeout(() => setStatus("idle"), 5000);
             } else {
                 setStatus("error");
+                setTimeout(() => setStatus("idle"), 3000);
             }
         } catch {
             setStatus("error");
+            setTimeout(() => setStatus("idle"), 3000);
         }
-    }
-
-    if (status === "success") {
-        return (
-            <div className="liquid-glass rounded-card p-8 text-center" role="alert" aria-live="polite">
-                <h3 className="font-heading text-xl font-bold theme-primary mb-2">
-                    Thank you!
-                </h3>
-                <p className="font-body theme-text">
-                    Your message has been sent. We&apos;ll get back to you soon.
-                </p>
-                <button
-                    onClick={() => setStatus("idle")}
-                    className="mt-4 font-body text-sm font-bold theme-primary underline cursor-pointer"
-                >
-                    Send another message
-                </button>
-            </div>
-        );
     }
 
     return (
         <div className="liquid-glass rounded-card p-6 md:p-8">
             <form onSubmit={handleSubmit} noValidate className="space-y-6">
-                {/* Name */}
-                <div>
-                    <label
-                        htmlFor="contact-name"
-                        className="block font-body text-xs font-bold uppercase tracking-wider text-muted mb-2"
-                    >
-                        Name
-                    </label>
-                    <input
-                        id="contact-name"
-                        type="text"
-                        name="name"
-                        autoComplete="name"
-                        className={`w-full border-0 border-b-2 bg-transparent px-0 py-2 font-body text-text outline-none transition-colors duration-200 focus:border-primary ${errors.name ? "border-error" : "border-input-border"
-                            }`}
-                        aria-invalid={!!errors.name}
-                        aria-describedby={errors.name ? "name-error" : undefined}
-                    />
-                    {errors.name && (
-                        <p id="name-error" className="mt-1 font-body text-xs text-error" role="alert">
-                            {errors.name}
-                        </p>
-                    )}
-                </div>
+                <FloatingInput
+                    label="Name"
+                    name="name"
+                    value={form.name}
+                    onChange={(e) => setForm({ ...form, name: e.target.value })}
+                    error={errors.name}
+                    required
+                />
 
-                {/* Email */}
-                <div>
-                    <label
-                        htmlFor="contact-email"
-                        className="block font-body text-xs font-bold uppercase tracking-wider text-muted mb-2"
-                    >
-                        Email
-                    </label>
-                    <input
-                        id="contact-email"
-                        type="email"
-                        name="email"
-                        autoComplete="email"
-                        className={`w-full border-0 border-b-2 bg-transparent px-0 py-2 font-body text-text outline-none transition-colors duration-200 focus:border-primary ${errors.email ? "border-error" : "border-input-border"
-                            }`}
-                        aria-invalid={!!errors.email}
-                        aria-describedby={errors.email ? "email-error" : undefined}
-                    />
-                    {errors.email && (
-                        <p id="email-error" className="mt-1 font-body text-xs text-error" role="alert">
-                            {errors.email}
-                        </p>
-                    )}
-                </div>
+                <FloatingInput
+                    label="Email"
+                    name="email"
+                    type="email"
+                    value={form.email}
+                    onChange={(e) => setForm({ ...form, email: e.target.value })}
+                    error={errors.email}
+                    required
+                />
 
-                {/* Message */}
-                <div>
-                    <label
-                        htmlFor="contact-message"
-                        className="block font-body text-xs font-bold uppercase tracking-wider text-muted mb-2"
-                    >
-                        Message
-                    </label>
-                    <textarea
-                        id="contact-message"
-                        name="message"
-                        rows={4}
-                        className={`w-full border-0 border-b-2 bg-transparent px-0 py-2 font-body text-text outline-none transition-colors duration-200 resize-y focus:border-primary ${errors.message ? "border-error" : "border-input-border"
-                            }`}
-                        aria-invalid={!!errors.message}
-                        aria-describedby={errors.message ? "message-error" : undefined}
-                    />
-                    {errors.message && (
-                        <p id="message-error" className="mt-1 font-body text-xs text-error" role="alert">
-                            {errors.message}
-                        </p>
-                    )}
-                </div>
+                <FloatingTextarea
+                    label="Message"
+                    name="message"
+                    value={form.message}
+                    onChange={(e) => setForm({ ...form, message: e.target.value })}
+                    error={errors.message}
+                    required
+                    rows={4}
+                />
 
-                {/* Error banner */}
-                {status === "error" && (
+                {/* Error banner mostly handled by individual field errors now, but kept as a fallback */}
+                {status === "error" && Object.keys(errors).length === 0 && (
                     <div className="glass rounded-button p-3 text-center" role="alert" aria-live="assertive"
                         style={{ borderLeft: "3px solid var(--color-error)" }}>
                         <p className="font-body text-sm text-error">
@@ -166,15 +110,15 @@ export function ContactForm() {
                     </div>
                 )}
 
-                {/* Submit */}
-                <button
-                    type="submit"
-                    disabled={status === "submitting"}
-                    className="w-full rounded-button bg-primary px-6 py-3 font-body text-sm font-bold uppercase tracking-wider text-white transition-all duration-250 hover:bg-primary-dark hover:shadow-[0_4px_20px_rgba(44,95,46,0.3)] hover:scale-[1.02] disabled:opacity-60 disabled:cursor-not-allowed disabled:hover:scale-100 cursor-pointer"
-                >
-                    {status === "submitting" ? "Sending…" : "Send Message"}
-                </button>
+                <AnimatedSubmitButton
+                    state={status}
+                    idleText="Send Message"
+                    loadingText="Sending…"
+                    successText="Message Sent!"
+                    errorText="Try Again"
+                />
             </form>
         </div>
     );
 }
+

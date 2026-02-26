@@ -4,6 +4,7 @@
 import Link from "next/link";
 import { motion, useReducedMotion, type Variants } from "framer-motion";
 import { ChevronDownIcon } from "@heroicons/react/24/outline";
+import { PulseButton } from "./MicroInteractions";
 import { useParallax } from "@/hooks/useParallax";
 
 interface HeroSectionProps {
@@ -118,12 +119,9 @@ export function HeroSection({
 
                     {ctaText && !compact && (
                         <motion.div className="mt-8" variants={itemVariants}>
-                            <Link
-                                href={ctaHref}
-                                className="inline-block rounded-button bg-primary px-6 py-3 font-body text-sm font-bold uppercase tracking-wider text-white transition-all duration-250 hover:bg-primary-dark hover:shadow-[0_4px_20px_rgba(44,95,46,0.4)] hover:scale-[1.03] cursor-pointer"
-                            >
+                            <PulseButton href={ctaHref} variant="primary">
                                 {ctaText}
-                            </Link>
+                            </PulseButton>
                         </motion.div>
                     )}
                 </motion.div>

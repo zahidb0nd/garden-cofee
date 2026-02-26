@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
-import { HeroSection } from "@/components/HeroSection";
+import { PulseButton } from "@/components/MicroInteractions";
+import GrainParallaxHero from "@/components/GrainParallaxHero";
 import { ProductCard } from "@/components/ProductCard";
 import { AnimationWrapper } from "@/components/AnimationWrapper";
 import { sanityFetch } from "@/lib/sanity";
@@ -80,12 +81,13 @@ export default async function HomePage() {
   return (
     <>
       {/* ===== Hero Section ===== */}
-      <HeroSection
+      <GrainParallaxHero
+        imageSrc="/images/hero-bg.png"
+        imageAlt="Garden Coffee & Tea Centre"
         title={storeName}
-        subtitle={tagline}
+        tagline={tagline}
         ctaText="Explore Our Products"
         ctaHref="/products"
-        showScrollIndicator
       />
 
       {/* ===== Brand Introduction ===== */}
@@ -154,12 +156,9 @@ export default async function HomePage() {
           </div>
 
           <AnimationWrapper delay={0.3} className="mt-10 text-center">
-            <Link
-              href="/products"
-              className="inline-block rounded-button border-2 border-primary px-6 py-3 font-body text-sm font-bold uppercase tracking-wider text-primary transition-all duration-250 hover:bg-primary hover:text-white hover:shadow-[0_4px_20px_rgba(44,95,46,0.3)] hover:scale-[1.03] cursor-pointer"
-            >
+            <PulseButton href="/products" variant="secondary">
               View All Products
-            </Link>
+            </PulseButton>
           </AnimationWrapper>
         </div>
       </section>
@@ -194,12 +193,12 @@ export default async function HomePage() {
                   </span>
                 </span>
               </div>
-              <Link
+              <PulseButton
                 href="/contact"
-                className="mt-8 inline-block rounded-button bg-accent px-6 py-3 font-body text-sm font-bold uppercase tracking-wider text-white transition-all duration-250 hover:bg-accent/90 hover:shadow-[0_4px_20px_rgba(201,136,58,0.4)] hover:scale-[1.03] relative z-10 cursor-pointer"
+                className="mt-8 relative z-10 !bg-accent hover:!bg-[#B3762E]"
               >
                 Get Directions
-              </Link>
+              </PulseButton>
             </div>
           </AnimationWrapper>
         </div>
